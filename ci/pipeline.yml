@@ -51,7 +51,7 @@ jobs:
       trigger: true
       params:
         globs:
-        - bbr-[0-9]+\.[0-9]+\.[0-9]\.tar
+        - bbr-*.tar
     - get: pcf-ops-image
     - get: version
       params:
@@ -61,8 +61,8 @@ jobs:
     config:
       platform: linux
       inputs:
+      - name: bbr-release
       - name: bbr-image-repo
-      - name: bbr-image-dockerhub
       outputs:
       - name: docker
       run:
