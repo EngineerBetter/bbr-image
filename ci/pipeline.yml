@@ -5,6 +5,7 @@ resources:
   source:
     owner: cloudfoundry-incubator
     repository: bosh-backup-and-restore
+    access_token: ((github_access_token))
 
 - name: bbr-image-repo
   type: git
@@ -20,14 +21,14 @@ resources:
   type: docker-image
   source:
     repository: engineerbetter/bbr-image
-    username: ((docker_username))
+    username: ((docker_user))
     password: ((docker_password))
 
 - name: pcf-ops-image
   type: docker-image
   source:
     repository: engineerbetter/pcf-ops
-    username: ((docker_username))
+    username: ((docker_user))
     password: ((docker_password))
 
 - name: version
