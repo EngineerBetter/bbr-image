@@ -38,7 +38,7 @@ resources:
     uri: git@github.com:EngineerBetter/bbr-image.git
     branch: master
     file: ci/version
-    private_key: ((version_deploy_key))
+    private_key: ((version_deploy_key.private_key))
 
 jobs:
 - name: build-image
