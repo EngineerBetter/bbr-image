@@ -41,7 +41,6 @@ jobs:
     - get: bbr-image-repo
       trigger: true
     - get: pcf-ops-image
-      trigger: true
     - get: version
       params:
         bump: patch
