@@ -1,4 +1,4 @@
-FROM cloudfoundry/cflinuxfs2
+FROM cloudfoundry/cflinuxfs3
 
 COPY bbr /usr/bin/bbr
 COPY om /usr/bin/om
