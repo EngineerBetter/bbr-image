@@ -5,6 +5,7 @@ COPY om /usr/bin/om
 
 RUN chmod +x /usr/bin/bbr
 RUN chmod +x /usr/bin/om
+RUN sync
 
 # Verify image
 COPY verify_image.sh /tmp/verify_image.sh
