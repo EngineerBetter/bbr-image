@@ -1,5 +1,6 @@
 #!/bin/bash
 set -eux
 
-which bbr
-bbr
+command -v \
+  bbr \
+  om

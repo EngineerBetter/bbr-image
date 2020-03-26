@@ -14,6 +14,13 @@ resources:
     repository: bosh-backup-and-restore
     access_token: ((github_access_token))
 
+- name: om-github-release
+  type: github-release
+  source:
+    owner: pivotal-cf
+    repository: om
+    access_token: ((github_access_token))
+
 - name: bbr-image-repo
   type: git
   source:
@@ -64,6 +71,10 @@ jobs:
       params:
         globs:
         - bbr-*.tar
+    - get: om-github-release
+      trigger: true
+      params:
+        globs: [om-linux-*.tar.gz]
     - get: pcf-ops-image
     - get: version
       params:
@@ -75,6 +86,7 @@ jobs:
       inputs:
       - name: bbr-release
       - name: bbr-image-repo
+      - name: om-github-release
       outputs:
       - name: docker
       run:
@@ -86,6 +98,7 @@ jobs:
             tar xf bbr-release/bbr-*
             mv releases/bbr docker/bbr
             chmod +x docker/bbr
+            tar -C docker -xzf om-github-release/om-linux-*.tar.gz
   - put: bbr-image-dockerhub
     params:
       build: docker
