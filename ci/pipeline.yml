@@ -63,7 +63,7 @@ jobs:
 - name: build-image
   serial: true
   plan:
-  - aggregate:
+  - in_parallel:
     - get: bbr-image-repo
       trigger: true
     - get: bbr-release
