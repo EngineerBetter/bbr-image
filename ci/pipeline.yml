@@ -28,6 +28,7 @@ resources:
     branch: master
     paths:
     - assets
+    - ci/pipeline.yml
     ignore_paths:
     - ci/version
 
